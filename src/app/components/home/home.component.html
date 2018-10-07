@@ -1,3 +1,65 @@
-<p>
-  home works!
-</p>
+
+<head>
+  <title>Bayesic Cisco Finder</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body>
+
+
+<!-- One -->
+<section id="one" class="wrapper" style="margin:auto!important; width:50%!important;">
+  <h2>Bayesic Cisco Finder</h2>
+  <form>
+    What are you looking for? <br>
+    <input type='text' name='customerQuery' [formControl]="searchQuery">
+  </form>
+  <ul class="actions">
+    <li><a (click)="callSearch()" class="button alt">Look it up!</a></li>
+  </ul>
+</section>
+
+<!--	 Contact -->
+<section id="contact" class="wrapper" style="padding-top:0!important;">
+  <div class="inner split">
+    <section style="width: 100%!important;">
+      <mat-list>
+        <h3 mat-subheader>Results - {{ total }}</h3>
+        <mat-list-item *ngFor="let hit of hits">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <h4 mat-line> {{ hit['_source']['title'][0] }}</h4>
+          <a href="{{ hit['_source']['url'][0] }}" target="_blank" mat-line style="width: 25%!important;"> {{ hit['_source']['url'][0] }} </a>
+          <p mat-line> {{ hit['_source']['cdcdescription'][0] }} </p>
+          <p mat-line style="text-wrap: normal!important;"> {{ hit['_source']['text'][0] | limitTo: 400 }}{{hit['_source']['text'][0].length > 20 ? '...' : ''}} </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </section>
+  </div>
+</section>
+
+<!-- Banner -->
+<section id="banner">
+  <div class="inner split">
+    <section>
+      <h2>JustYourBayesicDropouts</h2>
+    </section>
+    <section>
+      <p>A group of SJSU Computer Engineering undergraduates learning how to use M.L. in life</p>
+      <ul class="actions">
+        <li><a href="#" class="button special">Get started</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer id="footer">
+  <div class="copyright">
+    &copy; Untitled. All rights reserved. Images: <a href="http://unsplash.com">Unsplash</a>. Design: <a href="http://templated.co">TEMPLATED</a>.
+  </div>
+</footer>

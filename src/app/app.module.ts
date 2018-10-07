@@ -43,11 +43,13 @@ import {
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TruncatepipePipe } from './truncatepipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TruncatepipePipe
   ],
   imports: [
     BrowserModule,
