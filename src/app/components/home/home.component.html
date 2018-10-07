@@ -27,13 +27,12 @@
   <div class="inner split">
     <section style="width: 100%!important;">
       <mat-list>
-        <h3 mat-subheader>Results - {{ total }}</h3>
+        <h2 mat-subheader>Results - {{ total }}</h2>
         <mat-list-item *ngFor="let hit of hits">
-          <mat-icon mat-list-icon>folder</mat-icon>
-          <h4 mat-line> {{ hit['_source']['title'][0] }}</h4>
+          <h3 mat-line style="font-weight:bold !important;"> {{ hit['_source']['title'][0] }}</h3>
           <a href="{{ hit['_source']['url'][0] }}" target="_blank" mat-line style="width: 25%!important;"> {{ hit['_source']['url'][0] }} </a>
-          <p mat-line> {{ hit['_source']['cdcdescription'][0] }} </p>
-          <p mat-line style="text-wrap: normal!important;"> {{ hit['_source']['text'][0] | limitTo: 400 }}{{hit['_source']['text'][0].length > 20 ? '...' : ''}} </p>
+          <h6 mat-line style="font-weight:bold !important;"> {{ hit['_source']['cdcdescription'][0] }} </h6>
+          <h4 mat-line style="white-space: normal!important;"> {{ hit['_source']['text'][0] | limitTo: 400 }}{{hit['_source']['text'][0].length > 20 ? '...' : ''}} </h4>
         </mat-list-item>
         <mat-divider></mat-divider>
       </mat-list>
